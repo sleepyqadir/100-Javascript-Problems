@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Linked list</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+var LinkedList = function(e){
+
+   var that = {}, first, last;
+
+   that.push = function(value){
+      var node = new Node(value);
+      if(first == null){
+         first = last = node;
+      }else{
+         last.next = node;
+         last = node;
+      }
+   };
+
+   that.pop = function(){
+      var value = first;
+      first = first.next;
+      return value;
+   };
+
+   that.remove = function(index) {
+      var i = 0;
+      var current = first, previous;
+      if(index === 0){
+          first = current.next;  //handle special case - first node
+      }else{
+          while(i++ < index){
+              //set previous to first node
+              previous = current;
+              current = current.next //set current to the next one
+          }
+          previous.next = current.next;		//skip to the next node
+      }
+      return current.value;
+   };
+
+   var Node = function(value){
+      this.value = value;
+      var next = {};
+   };
+
+   return that;
+};
+
+
+var linkedList = new LinkedList();
+linkedList.push(1);
+linkedList.push(2);
+linkedList.push(3);
+linkedList.push(4);
+
+linkedList.remove(0);
+
+console.log(linkedList.pop());
+console.log(linkedList.pop());
+console.log(linkedList.pop());
+</script>
+</html>
