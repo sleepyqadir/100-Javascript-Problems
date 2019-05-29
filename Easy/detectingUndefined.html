@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>detecting undefined element</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="main.js"></script>
+</head>
+<body>
+    <script>
+        var a;
+        var check = call(a)
+        console.log(check)
+        function call(a) {
+            if(a === undefined){
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
